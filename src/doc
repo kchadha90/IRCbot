@@ -1,0 +1,42 @@
+	//TODO
+	//Start a channel list
+	event.getBot().listChannels();
+	event.getBot().sendIRC().listChannels();
+	
+	//Tell a user hello
+	event.getBot().sendMessage(event.getUser(), "Hello!");
+	event.getUser().send().message("Hello!");
+
+	//Tell the channel we like pizza
+	event.getBot().sendAction(event.getChannel(), "Really likes pizza");
+	event.getChannel().send().action("Really likes pizza");
+
+	//Tell a user in the channel they are wrong
+	event.getBot().sendMessage(event.getChannel(), event.getUser(), "That is incorrect");
+	event.getChannel().send().message(event.getUser(), "That is incorrect");
+
+	//Start a channel list
+	event.getBot().listChannels();
+	event.getBot().sendIRC().listChannels();
+
+	//Change our nick to PircBotXUser2
+	event.getBot().changeNick("PircBotXUser2");
+	event.getBot().sendIRC().changeNick("PircBotXUser2");
+
+	//Send a raw line to the server immediately
+	event.getBot().sendRawLineNow("Some raw line");
+	event.getBot().sendRaw().rawLineNow("Some raw line");
+
+	//Join a channel (Note, Configuration.addAutoJoinChannel is most likely what your wanting to use)
+	event.getBot().joinChannel("#pircbotx");
+	event.getBot().sendIrc().joinChannel("#pircbotx");
+
+	//Part a channel
+	event.getBot().partChannel(event.getChannel(), "Goodbye");
+	event.getChannel().send().part("Goodbye");
+	
+	//bot.sendIRC().message("#channel", "message") 
+	
+	onNickChange is a server level event not attached to any channel. 
+	event.respond() sends a private message to the user. 
+	You can see what channel(s) the user is on with user.getChannels(). 
